@@ -1,4 +1,4 @@
-import paho.mqtt.client as mqtt
+mport paho.mqtt.client as mqtt
 
 class IoT_Controller:
     client = None
@@ -6,29 +6,28 @@ class IoT_Controller:
     def configure():
         IoT_Controller.client = mqtt.Client()
         #pass the reference to the callback function to handle incoming messages
-        Iot_Controller.client.on_message = IoT_controller.on.message
+        IoT_Controller.client.on_message = IoT_Controller.on_message 
         #must connect to the MQTT message broker at "Localhost" on port 1883   
-        IoT_Controller.client.connect("localhost",1883) 
+        IoT_Controller.client.connect("localhost",1883)  
+        IoT_Controller.client.subscribe("*")
 
-    def on_message(client, username, message):
+    def on_message(client, userdate, message): 
         #this is where we handle the messages
-        #Using Try..except (exceptiion handling)
+        #Using try..except (exception handling)
         try:
-            value = float(message.payload.decode(utf-8))
-        except: ValueError;
+            value = float(message.payload.decode("utf-8"))
+        except: ValueError: 
             print("String")
-            value = message.payload.decode("utf-8)
+            value = massage.payload.decode("utf-8")
         topic = message.topic
-        print(topic, value)
+        print(topic, value) 
 
-     def run():
-        IoT.Controller.client.loop.forever()
+    def run(): 
+        IoT.Controller.client.loop_forever()
 
-def main();
+def main():
     IoT_Controller.configure()
     IoT_Controller.run()
 
-if __name__ == "__main__" 
+if __name__ == "__main__":
     main()
-
-    
