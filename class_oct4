@@ -10,9 +10,20 @@ class IoT_Controller:
         #must connect to the MQTT message broker at "Localhost" on port 1883   
         IoT_Controller.client.connect("localhost",1883) 
 
-    def on_message(client, username, message);
+    def on_message(client, username, message):
         #this is where we handle the messages
         value = float(message.payload.decode("utf-8))
         topic = message.topic
         print(topic, value)
 
+     def run():
+        IoT.Controller.client.loop.forever()
+
+def main();
+    IoT_Controller.configure()
+    IoT_Controller.run()
+
+if __name__ == "__main__" 
+    main()
+
+    
