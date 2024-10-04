@@ -12,7 +12,12 @@ class IoT_Controller:
 
     def on_message(client, username, message):
         #this is where we handle the messages
-        value = float(message.payload.decode("utf-8))
+        #Using Try..except (exceptiion handling)
+        try:
+            value = float(message.payload.decode(utf-8))
+        except: ValueError;
+            print("String")
+            value = message.payload.decode("utf-8)
         topic = message.topic
         print(topic, value)
 
