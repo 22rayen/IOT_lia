@@ -5,5 +5,14 @@ class IoT_Controller:
 
     def configure():
         IoT_Controller.client = mqtt.Client()
+        #pass the reference to the callback function to handle incoming messages
+        Iot_Controller.client.on_message = IoT_controller.on.message
         #must connect to the MQTT message broker at "Localhost" on port 1883   
         IoT_Controller.client.connect("localhost",1883) 
+
+    def on_message(client, username, message);
+        #this is where we handle the messages
+        value = float(message.payload.decode("utf-8))
+        topic = message.topic
+        print(topic, value)
+
