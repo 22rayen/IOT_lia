@@ -1,0 +1,60 @@
+//change made by both users
+October 11th, 2024 
+
+ 
+
+ 
+
+Brainstorming ideas: 
+
+Light chase lane, light range depending on the strength of the outside light 
+
+straight 
+
+"A heater" depending on the temperature 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Creating a LED circuit in which the intensity will be controlled by the strength of the outside light. 
+
+ 
+
+The LEDs will have a chase function (extra) 
+
+ 
+
+The LEDs will be lit at different intensities depending on that of the light. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Materials: 
+
+ 
+
+LEDs 
+
+Esp32 
+
+Power source 
+
+Resistors 
+
+3D circuit printed 
+
+Raspberry Pi 
