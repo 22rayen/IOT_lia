@@ -171,7 +171,131 @@ I might add a potentiamoter to controll the speed
 
 **
 
+------------------------------------------------------------------------------------------------------------------------------------
+//change made 24-11-29 by Rayen
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+//include libraries
+#include <Arduino.h>
+//define the pins 
+#define LED_1  15
+#define LED_2  16
+#define LED_3  17
+#define LED_4  18
+#define LED_5  13
+#define LED_6  27
+#define LED_7  26
+#define LED_8  25
+const int photoR = 34; // photoresistor
+const int potR = 35; //potentiameter 
+int power;
+int speed;
+//Variables
+int value;
+int value2;
+int delay_off = 0;
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+  pinMode(LED_1, OUTPUT);
+  pinMode(LED_2, OUTPUT);
+  pinMode(LED_3, OUTPUT);
+  pinMode(LED_4, OUTPUT);
+  pinMode(LED_5, OUTPUT);
+  pinMode(LED_6, OUTPUT);
+  pinMode(LED_7, OUTPUT);
+  pinMode(LED_8, OUTPUT);
+  pinMode(photoR, INPUT);// setting photoresistor as an input for the voltage devider
+  pinMode(potR, INPUT);// setting the potentiameter as an input for the voltage devider
+  
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+mesureSpeed();
+mesureLight();
+chase();
+ 
+}
+/*I am going to use a 10k ohm resistor for the voltage drop, use it as a percentage of how strong the light should be
+it will be something like (basically a map)
+max_val = 255 //5v
+min_val = 0// 0v
+it will basically controll the strength of the leds so the more light the less resistance so more voltage.
+less light would mean less voltage and the leds would be dim. 
+and for fun I am throwing in the chase.
 
 
 
 
+*/
+void mesureLight(){
+
+  value = analogRead(photoR);
+  power = map(value, 0, 4095, 255, 0);// suposed to turn the value from the light sensor to how much power would be sent to the led
+  Serial.println(value); //by testing the max value was 4095 and the lowest was 0
+  Serial.println(power);
+  
+  delay(100);
+
+
+}
+void mesureSpeed(){
+  value2 = analogRead(potR);
+  speed = map(value2, 0, 4095, 40, 1000);
+  Serial.println(value2); //by testing the max value was 4095 and the lowest was 0
+  Serial.println(speed);
+
+  
+}
+
+
+void chase() {
+  analogWrite(LED_1, power);
+  delay(speed);
+  analogWrite(LED_1, LOW);
+  delay(delay_off);
+
+  analogWrite(LED_2, power);
+  delay(speed);
+  analogWrite(LED_2, LOW);
+  delay(delay_off);
+
+  analogWrite(LED_3, power);
+  delay(speed);
+  analogWrite(LED_3, LOW);
+  delay(delay_off);
+
+  analogWrite(LED_4, power);
+  delay(speed);
+  analogWrite(LED_4, LOW);
+  delay(delay_off);
+
+  analogWrite(LED_5, power);
+  delay(speed);
+  analogWrite(LED_5, LOW);
+  delay(delay_off);
+
+  analogWrite(LED_6, power);
+  delay(speed);
+  analogWrite(LED_6, LOW);
+  delay(delay_off);
+  
+  analogWrite(LED_7, power);
+  delay(speed);
+  analogWrite(LED_7, LOW);
+  delay(delay_off);
+
+  analogWrite(LED_8, power);
+  delay(speed);
+  analogWrite(LED_8, LOW);
+  delay(delay_off);
+
+}
+
+**
+I added a potentiometer to control the speed, which also affects the scan time, a benefit would be that, it can be adjusted which leads to using less data.
+now we are working on the python part of things
+
+**
