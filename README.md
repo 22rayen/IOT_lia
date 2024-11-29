@@ -295,7 +295,7 @@ void chase() {
 }
 
 **
-I added a potentiometer to control the speed, which also affects the scan time, a benefit would be that, it can be adjusted which leads to using less data.
-now we are working on the python part of things
+I added a potentiometer to control the speed, which also affects the scan time. A benefit would be that it can be adjusted which leads to using less data.
+Now, we are working on the python side of things. 
 
 **
