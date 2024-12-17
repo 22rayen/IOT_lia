@@ -51,3 +51,16 @@
             "message": "Moderate speed. (101-250ms).",
             "topic":   "LIA_SR/speedStatus",
             "value":   "Moderate"
+
+        }
+   },
+
+{
+       "conditions": [
+            {"topic": "LIA_SR/speed", "comparison": ">=", "value": 251},
+        ],
+        "action": {
+            "message": "The speed is slow. (101-250ms).",
+            "topic":   "LIA_SR/speedStatus",
+            "value":   "Slow"
+       
