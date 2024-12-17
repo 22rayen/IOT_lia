@@ -1,0 +1,53 @@
+[{
+        "conditions":[
+             {"topic": "LIA_SR/power", "comparison":"<=", "value":100}
+        ],
+        "action":{
+             "message": "It is daytime.",
+             "topic":   "LIA_SR/powerStatus",
+             "value":   "Daytime"}
+    },
+
+{
+        "conditions": [
+              {"topic": "LIA_SR/power", "comparison": ">", "value": 100},
+              {"topic": "LIA_SR/power", "comparison": "<=", "value": 150}
+        ],
+        "action": {
+              "message": "It is moderately bright.",
+              "topic":   "LIA_SR/powerStatus",
+              "value":   "Moderate"}
+    },
+
+{
+        "conditions": [
+            {"topic": "LIA_SR/power", "comparison": ">", "value": 150}
+        ],
+        "action": {
+            "message": "It is nighttime.",
+            "topic":   "LIA_SR/powerStatus",
+            "value":   "Nighttime"}
+    },
+
+
+
+{
+        "conditions": [
+            {"topic": "LIA_SR/speed", "comparison": "<=", "value": 100}
+        ],
+        "action": {
+            "message": "Fast speed. (20-100ms).",
+            "topic":   "LIA_SR/speedStatus",
+            "value":   "Fast"
+        }
+    },
+
+{
+        "conditions": [
+            {"topic": "LIA_SR/speed", "comparison": ">=", "value": 101},
+            {"topic": "LIA_SR/speed", "comparison": "<=", "value": 250}
+        ],
+        "action": {
+            "message": "Moderate speed. (101-250ms).",
+            "topic":   "LIA_SR/speedStatus",
+            "value":   "Moderate"
